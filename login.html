@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            /* background-image: url('login.png');  */
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            background-size: 100% 100%; 
+            background-repeat: no-repeat; 
+            height: 100vh;
+        }
+        .container {
+            max-width: 400px;
+            margin: 100px auto 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .header {
+            background-color: #beafaf;
+            border-radius: 20px;
+            padding: 10px;
+        }
+        h2 {
+            margin: 0;
+        }
+        .form-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        label {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            margin-bottom: 5px;
+            text-align: center;
+            pointer-events: none; /* Prevent label from intercepting clicks */
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width:calc(100% - 22px);
+            padding: 10px;
+            border: none;
+            background-color: transparent;
+            border-bottom: 2px solid #000;
+            transition: border-color 0.3s ease;
+            text-align: center; /* Center align the input fields and button */
+            margin: auto; /* Center the input fields and button */
+            display: block; /* Make the input fields and button block elements */
+        }
+        input[type="submit"] {
+            background-color: #cd66e9;
+            border-radius: 20px;
+            color: rgb(0, 0, 0);
+            border-bottom: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+        border-color: #f6d7ff;
+        outline: none;
+        }
+        input[type="submit"]:hover {
+            background-color: #ebcfcf;
+        }    
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h2>Welcome</h2>
+    </div>
+    <form id="loginForm">
+        <div class="form-group">
+            <label for="username" onclick="hideElement('username')">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password" onclick="hideElement('password')">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Login">
+        </div>
+    </form>
+</div>
+
+<script>
+
+    // document.getElementById('welcomeText').addEventListener('click', function() {
+
+    //     this.style.display = 'none';
+
+    // });
+    function hideElement(id) {
+        document.getElementById(id).style.display = 'none';
+    }
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+        // Check if username and password are correct
+        if (username === 'rohit' && password === 'ajesh') {
+            // Redirect to homepage.html
+            window.location.href = 'homepage.html';
+        } else {
+            alert('Incorrect username or password. Please try again.');
+        }
+    });
+</script>
+</body>
+</html>

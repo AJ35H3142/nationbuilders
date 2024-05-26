@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.landing-page {
+    background-image: url('page1.png'); 
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+}
+
+.btnlndpg {
+    position: fixed;
+    bottom: 20px;
+    left: 15%;
+    transform: translateX(-50%);
+    background-color: #f6d7ff;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 26px;
+    transition: all 0.3s ease;
+}
+
+.btnlndpg:hover {
+    background-color: #d1a1d4;
+}
+
+.btnlndpgreg{position: fixed;
+    bottom: 20px;
+    left: 35%;
+    transform: translateX(-50%);
+    background-color: #f6d7ff;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 26px;
+    transition: all 0.3s ease;}
+.btnlndpgreg:hover{
+    background-color: #d1a1d4;
+}
+
+    </style>
+</head>
+<body>
+    <div class="landing-page">
+        <a href="login.html" class="btnlndpg">Login</a>
+        <a href="register.html" class="btnlndpgreg">Register</a>
+    </div>
+</body>
+</html>

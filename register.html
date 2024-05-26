@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Company Registration</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: rgb(226, 225, 223);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    label {
+        display: inline-block;
+        width: 150px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+    
+    input, select, textarea {
+        margin-bottom: 10px;
+        padding: 5px;
+        width: 200px;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    
+    input[type="file"] {
+        padding: 5px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    
+    #previewSection {
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #e4dfdf; /* Set background color */
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Add shadow */
+            width: 400px; /* Set width */
+            /* margin: 0 auto; Center the preview section */
+    }
+
+    #previewContent p {
+            margin: 5px 0;
+            font-weight: bold;
+            color: #333; /* Set text color */
+            font-family: Arial, sans-serif;
+            text-transform: capitalize;
+    }
+
+    /* #previewContent {
+            margin-top: 10px;
+    } */
+
+    button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 20px; /* Make button round */
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Add shadow */
+            background-color: #007bff; /* Set background color */
+            color: #fff; /* Set text color */
+    }
+</style>
+</head>
+<body>
+    <h1>Company Registration</h1>
+    <form id="companyForm" enctype="multipart/form-data">
+        <label for="fullName">Registered Name:</label>
+        <input type="text" id="fullName" name="fullName" required><br><br>
+        <label for="address">Registered Address:</label>
+        <input type="text" id="address" name="address" required><br><br>
+        <label for="website">Website:</label>
+        <input type="text" id="website" name="website" required><br><br>
+        <label for="contactNumber">Contact Number:</label>
+        <input type="text" id="contactNumber" name="contactNumber" required><br><br>  
+        <label for="emailId">Email ID:</label>
+        <input id="emailId" name="emailId" required></textarea><br><br>
+
+        <label for="panNo">PAN No.:</label>
+        <input type="text" id="panNo" name="panNo" required><br><br>
+        <input type="file" id="panFile" name="panFile" required><br><br>
+
+        <label for="gstinNo">UAN No. (if available):</label>
+        <input type="text" id="gstinNo" name="gstinNo"><br><br>
+        <input type="file" id="gstFile" name="gstFile"><br><br>
+       
+        <button type="button" onclick="previewForm()">Preview</button>
+    </form>
+
+    <div id="previewSection" style="display: none;">
+        <h2>Preview Details</h2>
+        <div id="previewContent"></div>
+        <button type="button" onclick="editForm()">Edit</button>
+        <button type="button" onclick="submitForm()">Submit</button>
+    </div>
+
+    <script>
+        function previewForm() {
+            let form = document.getElementById('companyForm');
+            let previewContent = document.getElementById('previewContent');
+
+            let formData = new FormData(form);
+            let output = '';
+
+            for (let [key, value] of formData.entries()) {
+                output += `<p><strong>${key}:</strong> ${value}</p>`;
+            }
+
+            previewContent.innerHTML = output;
+            form.style.display = 'none';
+            document.getElementById('previewSection').style.display = 'block';
+        }
+
+        function editForm() {
+            document.getElementById('previewSection').style.display = 'none';
+            document.getElementById('companyForm').style.display = 'block';
+        }
+
+        function submitForm() {
+    // Just show an alert instead of submitting the form
+    alert('Form submitted successfully!');
+
+    // Reset the form
+    let form = document.getElementById('companyForm');
+    form.reset();
+
+    // Hide the preview section and show the form again
+    document.getElementById('previewSection').style.display = 'none';
+    form.style.display = 'block';
+    }
+    </script>
+</body>
+</html>
